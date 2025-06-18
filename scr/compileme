@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+#module add cce
+# module load cray-hdf5
+# module load cray-netcdf
+# module load cray-parallel-netcdf/1.12.3.1
+
+module load cray-hdf5-parallel
+module load cray-netcdf-hdf5parallel
+module add cray-fftw
+
+export CRAYPE_LINK_TYPE=dynamic
+set -ex
+
+## compile
+
+## compile with MPI:
+  ftn -m 4 param.F90 velvorproj.F90 param_fftw.F90 nm_decomp.F90 diagnostics.F90 IO_netcdf.F90 init_condition.F90 forcing.F90 realspacedumps.F90 misc.F90 boussinesq.F90 -o boussinesq 
+
+ rm *.mod
+

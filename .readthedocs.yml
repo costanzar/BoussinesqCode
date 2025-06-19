@@ -5,10 +5,12 @@ sphinx:
   configuration: docs/conf.py  # point to your conf.py file inside the docs folder
 
 build:
-  image: latest  # optional, for latest build environment
-  os: ubuntu-22.04
+  jobs:
+    pre_build:
+      - python3 -m ford -d scr -e F90 ford.yml -o docs/api
 
-  commands:
-    - python3 -m ford -d scr -e F90 ford.yml -o docs/api
-    - sphinx-build -b html docs docs/_build/html
-
+python:
+  install:
+    - method: pip
+      path: .
+    - requirements: docs/requirements.txt

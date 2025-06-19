@@ -8,9 +8,11 @@ build:
   tools:
     python: "3.10"
 
+formats:
+  - pdf
+  - html
+
 python:
   install:
     - requirements: requirements.txt
 
-formats:
- -pdf

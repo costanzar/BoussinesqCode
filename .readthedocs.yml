@@ -1,11 +1,12 @@
 version: 2
 
+
 sphinx:
   configuration: docs/conf.py  # point to your conf.py file inside the docs folder
 
 build:
   image: latest  # optional, for latest build environment
-  os: ubuntu-latest  # optional
+  os: ubuntu-Its-latest  # optional
 
   commands:
     - python3 -m ford -d scr -e F90 ford.yml -o docs/api

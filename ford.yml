@@ -1,11 +1,11 @@
 project: BoussinesqCode
 author: Costanza R.
 
-sources:
-  - scr
-
-source_ext: [F90]
-
+output_dir: docs/api
 preprocess: false
 
-output-dir: docs/api
+source_dirs:
+  - scr
+
+source_ext: [F90, f90]
+

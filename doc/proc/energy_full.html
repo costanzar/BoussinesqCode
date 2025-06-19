@@ -88,20 +88,19 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 3.8% of total for procedures.">77 statements</a>
+                 title=" 3.9% of total for procedures.">80 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/init_condition.F90"> Source File</a>
+              <a href="../src/boussinesq.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/init_condition.f90.html'>init_condition.F90</a></li>
-                <li class="breadcrumb-item"><a href='../module/init_condition.html'>init_condition</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/boussinesq.f90.html'>boussinesq.F90</a></li>
             <li class="breadcrumb-item active" aria-current="page">energy_full</li>
           </ol>
         </nav>
@@ -149,9 +148,23 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine energy_full(zx, zy, zz, tt, ux, uy, uz, ge, g1, g2, ke, pe, eg, ea)  
+    <h2> subroutine energy_full(zx, zy, zz, tt, ux, uy, uz, ge, g1, g2, ke, pe, eg, ea)  
 </h2>
-    
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/velvorproj.html'>velvorproj</a></li>
+                  <li class="list-inline-item"><a href='../module/nm_decomp.html'>nm_decomp</a></li>
+                  <li class="list-inline-item"><a href='../module/param.html'>param</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
 
 
 
@@ -168,7 +181,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-zx~3"></span>
+              <span class="anchor" id="variable-zx~10"></span>
               complex,
             </td>
 <td>intent(in),</td>
@@ -183,7 +196,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-zy~3"></span>
+              <span class="anchor" id="variable-zy~10"></span>
               complex,
             </td>
 <td>intent(in),</td>
@@ -198,7 +211,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-zz~3"></span>
+              <span class="anchor" id="variable-zz~10"></span>
               complex,
             </td>
 <td>intent(in),</td>
@@ -213,7 +226,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tt~3"></span>
+              <span class="anchor" id="variable-tt~7"></span>
               complex,
             </td>
 <td>intent(in),</td>
@@ -228,7 +241,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ux"></span>
+              <span class="anchor" id="variable-ux~3"></span>
               complex,
             </td>
 <td>intent(inout),</td>
@@ -243,7 +256,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-uy"></span>
+              <span class="anchor" id="variable-uy~3"></span>
               complex,
             </td>
 <td>intent(inout),</td>
@@ -258,7 +271,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-uz"></span>
+              <span class="anchor" id="variable-uz~3"></span>
               complex,
             </td>
 <td>intent(inout),</td>
@@ -318,7 +331,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ke"></span>
+              <span class="anchor" id="variable-ke~2"></span>
               real,
             </td>
 <td>intent(out)</td>
@@ -333,7 +346,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pe"></span>
+              <span class="anchor" id="variable-pe~2"></span>
               real,
             </td>
 <td>intent(out)</td>
@@ -348,7 +361,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-eg"></span>
+              <span class="anchor" id="variable-eg~2"></span>
               real,
             </td>
 <td>intent(out)</td>
@@ -363,7 +376,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ea"></span>
+              <span class="anchor" id="variable-ea~2"></span>
               real,
             </td>
 <td>intent(out)</td>

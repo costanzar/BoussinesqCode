@@ -16,3 +16,5 @@ python:
   install:
     - requirements: requirements.txt
 
+commands:
+ - python3 -m ford -d scr -e F90 ford.yml

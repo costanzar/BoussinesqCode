@@ -1,0 +1,2079 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for BoussinesqCode">
+    <meta name="author" content="Costanza R." >
+    <link rel="icon" href="../favicon.png">
+
+    <title>MAIN &ndash; BoussinesqCode</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">BoussinesqCode </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../program/main.html">Program</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>MAIN      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="100.0% of total for programs.">511 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/boussinesq.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/boussinesq.f90.html'>boussinesq.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">MAIN</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/main.html#variable-d2">d2</a>
+            <a class="list-group-item" href="../program/main.html#variable-d12">d12</a>
+            <a class="list-group-item" href="../program/main.html#variable-k2h">k2h</a>
+            <a class="list-group-item" href="../program/main.html#variable-k2z">k2z</a>
+            <a class="list-group-item" href="../program/main.html#variable-v2h">v2h</a>
+            <a class="list-group-item" href="../program/main.html#variable-v2z">v2z</a>
+            <a class="list-group-item" href="../program/main.html#variable-zxok">zxok</a>
+            <a class="list-group-item" href="../program/main.html#variable-zyok">zyok</a>
+            <a class="list-group-item" href="../program/main.html#variable-zzok">zzok</a>
+            <a class="list-group-item" href="../program/main.html#variable-ttok">ttok</a>
+            <a class="list-group-item" href="../program/main.html#variable-zxnk">zxnk</a>
+            <a class="list-group-item" href="../program/main.html#variable-zynk">zynk</a>
+            <a class="list-group-item" href="../program/main.html#variable-zznk">zznk</a>
+            <a class="list-group-item" href="../program/main.html#variable-ttnk">ttnk</a>
+            <a class="list-group-item" href="../program/main.html#variable-zxor">zxor</a>
+            <a class="list-group-item" href="../program/main.html#variable-zyor">zyor</a>
+            <a class="list-group-item" href="../program/main.html#variable-zzor">zzor</a>
+            <a class="list-group-item" href="../program/main.html#variable-ttor">ttor</a>
+            <a class="list-group-item" href="../program/main.html#variable-zxnr">zxnr</a>
+            <a class="list-group-item" href="../program/main.html#variable-zynr">zynr</a>
+            <a class="list-group-item" href="../program/main.html#variable-zznr">zznr</a>
+            <a class="list-group-item" href="../program/main.html#variable-ttnr">ttnr</a>
+            <a class="list-group-item" href="../program/main.html#variable-zxo_p">zxo_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-zyo_p">zyo_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-zzo_p">zzo_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-tto_p">tto_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-zxn_p">zxn_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-zyn_p">zyn_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-zzn_p">zzn_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-ttn_p">ttn_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzxk~2">nzxk</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzyk~2">nzyk</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzzk~2">nzzk</a>
+            <a class="list-group-item" href="../program/main.html#variable-nttk~2">nttk</a>
+            <a class="list-group-item" href="../program/main.html#variable-uk~2">uk</a>
+            <a class="list-group-item" href="../program/main.html#variable-vk~2">vk</a>
+            <a class="list-group-item" href="../program/main.html#variable-wk~3">wk</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzxr">nzxr</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzyr">nzyr</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzzr">nzzr</a>
+            <a class="list-group-item" href="../program/main.html#variable-nttr">nttr</a>
+            <a class="list-group-item" href="../program/main.html#variable-ur">ur</a>
+            <a class="list-group-item" href="../program/main.html#variable-vr">vr</a>
+            <a class="list-group-item" href="../program/main.html#variable-wr~2">wr</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzx_p">nzx_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzy_p">nzy_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-nzz_p">nzz_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-ntt_p">ntt_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-u_p">u_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-v_p">v_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-w_p">w_p</a>
+            <a class="list-group-item" href="../program/main.html#variable-rhzx~2">rhzx</a>
+            <a class="list-group-item" href="../program/main.html#variable-rhzy~2">rhzy</a>
+            <a class="list-group-item" href="../program/main.html#variable-rhzz~2">rhzz</a>
+            <a class="list-group-item" href="../program/main.html#variable-rhtt~2">rhtt</a>
+            <a class="list-group-item" href="../program/main.html#variable-geok~3">geok</a>
+            <a class="list-group-item" href="../program/main.html#variable-gw1k~3">gw1k</a>
+            <a class="list-group-item" href="../program/main.html#variable-gw2k~3">gw2k</a>
+            <a class="list-group-item" href="../program/main.html#variable-zx1k">zx1k</a>
+            <a class="list-group-item" href="../program/main.html#variable-zy1k">zy1k</a>
+            <a class="list-group-item" href="../program/main.html#variable-zz1k">zz1k</a>
+            <a class="list-group-item" href="../program/main.html#variable-tt1k">tt1k</a>
+            <a class="list-group-item" href="../program/main.html#variable-utseries">utseries</a>
+            <a class="list-group-item" href="../program/main.html#variable-vtseries">vtseries</a>
+            <a class="list-group-item" href="../program/main.html#variable-zztseries">zztseries</a>
+            <a class="list-group-item" href="../program/main.html#variable-timetseries">timetseries</a>
+            <a class="list-group-item" href="../program/main.html#variable-mypoints">mypoints</a>
+            <a class="list-group-item" href="../program/main.html#variable-nomypts">nomypts</a>
+            <a class="list-group-item" href="../program/main.html#variable-termzx">termzx</a>
+            <a class="list-group-item" href="../program/main.html#variable-termzy">termzy</a>
+            <a class="list-group-item" href="../program/main.html#variable-termzz">termzz</a>
+            <a class="list-group-item" href="../program/main.html#variable-termtt">termtt</a>
+            <a class="list-group-item" href="../program/main.html#variable-tzx">tzx</a>
+            <a class="list-group-item" href="../program/main.html#variable-tzy">tzy</a>
+            <a class="list-group-item" href="../program/main.html#variable-tzz">tzz</a>
+            <a class="list-group-item" href="../program/main.html#variable-ttt">ttt</a>
+            <a class="list-group-item" href="../program/main.html#variable-u~2">u</a>
+            <a class="list-group-item" href="../program/main.html#variable-v~2">v</a>
+            <a class="list-group-item" href="../program/main.html#variable-w~2">w</a>
+            <a class="list-group-item" href="../program/main.html#variable-c1~2">c1</a>
+            <a class="list-group-item" href="../program/main.html#variable-c2~2">c2</a>
+            <a class="list-group-item" href="../program/main.html#variable-c3~2">c3</a>
+            <a class="list-group-item" href="../program/main.html#variable-gtau">gtau</a>
+            <a class="list-group-item" href="../program/main.html#variable-dmz">dmz</a>
+            <a class="list-group-item" href="../program/main.html#variable-dpz">dpz</a>
+            <a class="list-group-item" href="../program/main.html#variable-r1">r1</a>
+            <a class="list-group-item" href="../program/main.html#variable-r2">r2</a>
+            <a class="list-group-item" href="../program/main.html#variable-kx~4">kx</a>
+            <a class="list-group-item" href="../program/main.html#variable-ky~4">ky</a>
+            <a class="list-group-item" href="../program/main.html#variable-kz~4">kz</a>
+            <a class="list-group-item" href="../program/main.html#variable-kh">kh</a>
+            <a class="list-group-item" href="../program/main.html#variable-khn">khn</a>
+            <a class="list-group-item" href="../program/main.html#variable-wk2~2">wk2</a>
+            <a class="list-group-item" href="../program/main.html#variable-k~2">k</a>
+            <a class="list-group-item" href="../program/main.html#variable-ts~2">ts</a>
+            <a class="list-group-item" href="../program/main.html#variable-ikx~4">ikx</a>
+            <a class="list-group-item" href="../program/main.html#variable-iky~4">iky</a>
+            <a class="list-group-item" href="../program/main.html#variable-ikz~4">ikz</a>
+            <a class="list-group-item" href="../program/main.html#variable-ikza~4">ikza</a>
+            <a class="list-group-item" href="../program/main.html#variable-ic">ic</a>
+            <a class="list-group-item" href="../program/main.html#variable-isample">isample</a>
+            <a class="list-group-item" href="../program/main.html#variable-iseed">iseed</a>
+            <a class="list-group-item" href="../program/main.html#variable-nt~3">nt</a>
+            <a class="list-group-item" href="../program/main.html#variable-nt0">nt0</a>
+            <a class="list-group-item" href="../program/main.html#variable-ntdump">ntdump</a>
+            <a class="list-group-item" href="../program/main.html#variable-npe1">npe1</a>
+            <a class="list-group-item" href="../program/main.html#variable-inrlcount">inrlcount</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/io_netcdf.html'>IO_netcdf</a></li>
+                  <li class="list-inline-item"><a href='../module/velvorproj.html'>velvorproj</a></li>
+                  <li class="list-inline-item"><a href='../module/init_condition.html'>init_condition</a></li>
+                  <li class="list-inline-item"><a href='../module/forcing.html'>forcing</a></li>
+                  <li class="list-inline-item"><a href='../module/realspacedumps.html'>realspacedumps</a></li>
+                  <li class="list-inline-item"><a href='../module/nm_decomp.html'>nm_decomp</a></li>
+                  <li class="list-inline-item"><a href='../module/misc.html'>misc</a></li>
+                  <li class="list-inline-item"><a href='../module/diagnostics.html'>diagnostics</a></li>
+                  <li class="list-inline-item">param_fftw</li>
+                  <li class="list-inline-item"><a href='../module/param.html'>param</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>$  if (npts.gt.0) then
+$     allocate(mypoints(npts))
+$     if (tskept&lt;=0) print<em>, 'you forgot to specify the variables to keep in time series'
+$     mypoints = 0
+$     isample = 0
+$     do ic = 1,npts
+$        if ( ( (mype</em>n2dp+1) &lt;= yind(ic) ).and.( yind(ic) &lt;= ((mype+1)*n2dp) ) ) then
+$           mypoints(ic) = 1
+$        endif
+$     end do
+$     nomypts=sum(mypoints)
+$     if (mype.eq.0) allocate(timetseries(nsamples))
+$     if ( (kpU.eq.1).and.(nomypts.gt.0) ) allocate(utseries(nomypts,nsamples))
+$     if ( (kpV.eq.1).and.(nomypts.gt.0) ) allocate(vtseries(nomypts,nsamples))
+$     if ( (kpZZ.eq.1).and.(nomypts.gt.0) ) allocate(zztseries(nomypts,nsamples))
+$  end if</p>
+<p>$  if (npts.gt.0) then
+$     call dump_timeseries(utseries,vtseries,zztseries,timetseries,mypoints,isample,nomypts)
+$     deallocate(mypoints)
+$     if (mype.eq.0) deallocate(timetseries)
+$     if ( (kpU.eq.1).and.(nomypts.gt.0) ) deallocate(utseries)
+$     if ( (kpV.eq.1).and.(nomypts.gt.0) ) deallocate(vtseries)
+$     if ( (kpZZ.eq.1).and.(nomypts.gt.0) ) deallocate(zztseries)
+$  endif</p>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d2"></span>
+              real,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>d2</strong></td>
+<td> =</td>
+                <td>2*delt</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d12"></span>
+              real,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>d12</strong></td>
+<td> =</td>
+                <td>delt/12</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k2h"></span>
+              real,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>k2h</strong></td>
+<td> =</td>
+                <td>visch*delt</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k2z"></span>
+              real,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>k2z</strong></td>
+<td> =</td>
+                <td>viscz*delt</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v2h"></span>
+              real,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>v2h</strong></td>
+<td> =</td>
+                <td>visch*delt</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v2z"></span>
+              real,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>v2z</strong></td>
+<td> =</td>
+                <td>viscz*delt</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zxok"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zxok</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zyok"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zyok</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzok"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zzok</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttok"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>ttok</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zxnk"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zxnk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zynk"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zynk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zznk"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zznk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttnk"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>ttnk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zxor"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zxor</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zyor"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zyor</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzor"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zzor</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttor"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>ttor</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zxnr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zxnr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zynr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zynr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zznr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>zznr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttnr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>ttnr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zxo_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>zxo_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zyo_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>zyo_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzo_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>zzo_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tto_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tto_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zxn_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>zxn_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zyn_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>zyn_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzn_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>zzn_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttn_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ttn_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzxk~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>nzxk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzyk~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>nzyk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzzk~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>nzzk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nttk~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>nttk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uk~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>uk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vk~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>vk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wk~3"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>wk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzxr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>nzxr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzyr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>nzyr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzzr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>nzzr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nttr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>nttr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ur"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>ur</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vr"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>vr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wr~2"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:,:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>wr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzx_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nzx_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzy_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nzy_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzz_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nzz_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ntt_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ntt_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>u_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>v_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w_p"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>w_p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhzx~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>rhzx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhzy~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>rhzy</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhzz~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>rhzz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhtt~2"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>rhtt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-geok~3"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>geok</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gw1k~3"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>gw1k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gw2k~3"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>gw2k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zx1k"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>zx1k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zy1k"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>zy1k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zz1k"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>zz1k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tt1k"></span>
+              complex,
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>tt1k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-utseries"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>utseries</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vtseries"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>vtseries</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zztseries"></span>
+              real,
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>zztseries</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-timetseries"></span>
+              real,
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>timetseries</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mypoints"></span>
+              integer,
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>mypoints</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nomypts"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nomypts</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-termzx"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>termzx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-termzy"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>termzy</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-termzz"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>termzz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-termtt"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>termtt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tzx"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tzx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tzy"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tzy</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tzz"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tzz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttt"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ttt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u~2"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>u</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~2"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>v</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~2"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>w</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c1~2"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>c1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c2~2"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>c2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c3~2"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>c3</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gtau"></span>
+              complex
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>gtau</strong>(1200,4)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dmz"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dmz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpz"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dpz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kx~4"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ky~4"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ky</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kz~4"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kh"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kh</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-khn"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>khn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wk2~2"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wk2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~2"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ts~2"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ts</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ikx~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ikx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iky~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iky</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ikz~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ikz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ikza~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ikza</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ic"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ic</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-isample"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>isample</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iseed"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iseed</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nt~3"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nt</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nt0"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nt0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ntdump"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ntdump</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-npe1"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>npe1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-inrlcount"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>inrlcount</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              BoussinesqCode
+ was developed by Costanza R.<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

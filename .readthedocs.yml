@@ -10,7 +10,7 @@ build:
 
 formats:
   - pdf
-  - html
+  - epub
 
 python:
   install:

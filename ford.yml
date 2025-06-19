@@ -8,3 +8,4 @@ source_ext: [F90]
 
 preprocess: false
 
+output-dir: docs/api

@@ -9,7 +9,7 @@ A Fortran codebase for solving the Boussinesq equations.
 
    installation
    usage
-   api
+   api/index # This links to docs/api/index.html
 
 Indices and tables
 ==================
@@ -17,4 +17,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
+* :ref:`tutorials'

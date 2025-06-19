@@ -1,0 +1,1165 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for BoussinesqCode">
+    <meta name="author" content="Costanza R." >
+    <link rel="icon" href="../favicon.png">
+
+    <title>realspacedumps &ndash; BoussinesqCode</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">BoussinesqCode </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../program/main.html">Program</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>realspacedumps
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="21.3% of total for modules and submodules.">377 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/realspacedumps.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/realspacedumps.f90.html'>realspacedumps.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">realspacedumps</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-nhor">nHor</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-nver">nVer</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-ihor">ihor</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-iver">iver</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-idslices">idslices</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-idxrs">idxrs</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-idyrs">idyrs</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-idzrs">idzrs</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-idtmrs">idtmrs</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-tmrid">tmrid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-xxid">xxid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-yyid">yyid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-zzid">zzid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-zzhtotid">zzhtotid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-zzvtotid">zzvtotid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-zzhbrtid">zzhbrtid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-zzvbrtid">zzvbrtid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-uuhtotid">uuhtotid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-uuvtotid">uuvtotid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-vvhtotid">vvhtotid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-vvvtotid">vvvtotid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-uuhbrcid">uuhbrcid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-uuvbrcid">uuvbrcid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-vvhbrcid">vvhbrcid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-vvvbrcid">vvvbrcid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-qdhtotid">qdhtotid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-qdvtotid">qdvtotid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-qdhbrcid">qdhbrcid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-qdvbrcid">qdvbrcid</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#variable-irscount">iRScount</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/realspacedumps.html#proc-prep_realslice">prep_realslice</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#proc-dump_realspace">dump_realspace</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#proc-dump_horslice">dump_horslice</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#proc-dump_verslice">dump_verslice</a>
+            <a class="list-group-item" href="../module/realspacedumps.html#proc-close_ncf_realspace">close_ncf_realspace</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <p>%% PARAMETERs %%</p>
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">netcdf</li>
+                  <li class="list-inline-item"><a href='velvorproj.html'>velvorproj</a></li>
+                  <li class="list-inline-item"><a href='param.html'>param</a></li>
+                  <li class="list-inline-item"><a href='nm_decomp.html'>nm_decomp</a></li>
+                  <li class="list-inline-item">param_fftw</li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nhor"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nHor</strong></td>
+<td> =</td>
+                <td>FLOOR(real(nHend-nHstart+1.0, 8)/nskipH)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nver"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nVer</strong></td>
+<td> =</td>
+                <td>FLOOR(real(nVend-nVstart+1.0, 8)/nskipV)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ihor"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ihor</strong></td>
+<td> =</td>
+                <td>n3/2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iver"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>iver</strong></td>
+<td> =</td>
+                <td>n1d/2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idslices"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>idslices</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idxrs"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>idxrs</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idyrs"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>idyrs</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idzrs"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>idzrs</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idtmrs"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>idtmrs</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmrid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>tmrid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xxid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>xxid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yyid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>yyid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>zzid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzhtotid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>zzhtotid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzvtotid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>zzvtotid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzhbrtid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>zzhbrtid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzvbrtid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>zzvbrtid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uuhtotid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>uuhtotid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uuvtotid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>uuvtotid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vvhtotid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>vvhtotid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vvvtotid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>vvvtotid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uuhbrcid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>uuhbrcid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uuvbrcid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>uuvbrcid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vvhbrcid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>vvhbrcid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vvvbrcid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>vvvbrcid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qdhtotid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>qdhtotid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qdvtotid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>qdvtotid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qdhbrcid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>qdhbrcid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qdvbrcid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>qdvbrcid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irscount"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>iRScount</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>Make internal variables and functions private</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-prep_realslice"></span> <h3>public  subroutine <a href='../proc/prep_realslice.html'>prep_realslice</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  <p>$  real, dimension(nHor):: xr,yr
+$  real, dimension(nVer):: zr</p>
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dump_realspace"></span> <h3>public  subroutine <a href='../proc/dump_realspace.html'>dump_realspace</a>(zxk, zyk, zzk, ttk, uk, vk, wk, zxr, zyr, zzr, ttr, ur, vr, wr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zxk~4"></span>
+              complex,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(iktx,ikty,iktzp)
+            </td>
+            <td>::</td>
+            <td><strong>zxk</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zyk~4"></span>
+              complex,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(iktx,ikty,iktzp)
+            </td>
+            <td>::</td>
+            <td><strong>zyk</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzk~4"></span>
+              complex,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(iktx,ikty,iktzp)
+            </td>
+            <td>::</td>
+            <td><strong>zzk</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttk~4"></span>
+              complex,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(iktx,ikty,iktzp)
+            </td>
+            <td>::</td>
+            <td><strong>ttk</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uk~6"></span>
+              complex,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(iktx,ikty,iktzp)
+            </td>
+            <td>::</td>
+            <td><strong>uk</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vk~6"></span>
+              complex,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(iktx,ikty,iktzp)
+            </td>
+            <td>::</td>
+            <td><strong>vk</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wk~12"></span>
+              complex,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(iktx,ikty,iktzp)
+            </td>
+            <td>::</td>
+            <td><strong>wk</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zxr~4"></span>
+              real,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>zxr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zyr~4"></span>
+              real,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>zyr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zzr~4"></span>
+              real,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>zzr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttr~4"></span>
+              real,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>ttr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ur~6"></span>
+              real,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>ur</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vr~6"></span>
+              real,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>vr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wr~7"></span>
+              real,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>wr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dump_horslice"></span> <h3>public  subroutine <a href='../proc/dump_horslice.html'>dump_horslice</a>(fr, idhvar)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fr"></span>
+              real,
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>fr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idhvar"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idhvar</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dump_verslice"></span> <h3>public  subroutine <a href='../proc/dump_verslice.html'>dump_verslice</a>(fr, idvvar)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fr~2"></span>
+              real,
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(n1d,n3d,n2dp)
+            </td>
+            <td>::</td>
+            <td><strong>fr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idvvar"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idvvar</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-close_ncf_realspace"></span> <h3>public  subroutine <a href='../proc/close_ncf_realspace.html'>close_ncf_realspace</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              BoussinesqCode
+ was developed by Costanza R.<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

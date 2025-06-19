@@ -1,0 +1,1508 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for BoussinesqCode">
+    <meta name="author" content="Costanza R." >
+    <link rel="icon" href="../favicon.png">
+
+    <title>param &ndash; BoussinesqCode</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">BoussinesqCode </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../program/main.html">Program</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>param
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 3.3% of total for modules and submodules.">59 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/param.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/param.f90.html'>param.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">param</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/param.html#variable-n1">n1</a>
+            <a class="list-group-item" href="../module/param.html#variable-n2">n2</a>
+            <a class="list-group-item" href="../module/param.html#variable-n3">n3</a>
+            <a class="list-group-item" href="../module/param.html#variable-npe">npe</a>
+            <a class="list-group-item" href="../module/param.html#variable-twopi~4">twopi</a>
+            <a class="list-group-item" href="../module/param.html#variable-sqrt2">sqrt2</a>
+            <a class="list-group-item" href="../module/param.html#variable-zi">zi</a>
+            <a class="list-group-item" href="../module/param.html#variable-time">time</a>
+            <a class="list-group-item" href="../module/param.html#variable-delt">delt</a>
+            <a class="list-group-item" href="../module/param.html#variable-tstop">tstop</a>
+            <a class="list-group-item" href="../module/param.html#variable-nstop">nstop</a>
+            <a class="list-group-item" href="../module/param.html#variable-prra">PrRa</a>
+            <a class="list-group-item" href="../module/param.html#variable-aj">aj</a>
+            <a class="list-group-item" href="../module/param.html#variable-bj">bj</a>
+            <a class="list-group-item" href="../module/param.html#variable-bf2">bf2</a>
+            <a class="list-group-item" href="../module/param.html#variable-bf">bf</a>
+            <a class="list-group-item" href="../module/param.html#variable-cor">cor</a>
+            <a class="list-group-item" href="../module/param.html#variable-cor2">cor2</a>
+            <a class="list-group-item" href="../module/param.html#variable-l1">L1</a>
+            <a class="list-group-item" href="../module/param.html#variable-l2">L2</a>
+            <a class="list-group-item" href="../module/param.html#variable-l3">L3</a>
+            <a class="list-group-item" href="../module/param.html#variable-n1d">n1d</a>
+            <a class="list-group-item" href="../module/param.html#variable-n2d">n2d</a>
+            <a class="list-group-item" href="../module/param.html#variable-n3d">n3d</a>
+            <a class="list-group-item" href="../module/param.html#variable-n2dp">n2dp</a>
+            <a class="list-group-item" href="../module/param.html#variable-n2p">n2p</a>
+            <a class="list-group-item" href="../module/param.html#variable-ktx">ktx</a>
+            <a class="list-group-item" href="../module/param.html#variable-kty">kty</a>
+            <a class="list-group-item" href="../module/param.html#variable-ktz">ktz</a>
+            <a class="list-group-item" href="../module/param.html#variable-iktx">iktx</a>
+            <a class="list-group-item" href="../module/param.html#variable-ikty">ikty</a>
+            <a class="list-group-item" href="../module/param.html#variable-iktz">iktz</a>
+            <a class="list-group-item" href="../module/param.html#variable-iktzp">iktzp</a>
+            <a class="list-group-item" href="../module/param.html#variable-kts">kts</a>
+            <a class="list-group-item" href="../module/param.html#variable-ktrunc_x">ktrunc_x</a>
+            <a class="list-group-item" href="../module/param.html#variable-ktrunc_y">ktrunc_y</a>
+            <a class="list-group-item" href="../module/param.html#variable-ktrunc_z">ktrunc_z</a>
+            <a class="list-group-item" href="../module/param.html#variable-ilap">ilap</a>
+            <a class="list-group-item" href="../module/param.html#variable-ilap2">ilap2</a>
+            <a class="list-group-item" href="../module/param.html#variable-vischtmp">vischtmp</a>
+            <a class="list-group-item" href="../module/param.html#variable-viscztmp">viscztmp</a>
+            <a class="list-group-item" href="../module/param.html#variable-visch">visch</a>
+            <a class="list-group-item" href="../module/param.html#variable-viscz">viscz</a>
+            <a class="list-group-item" href="../module/param.html#variable-ek">ek</a>
+            <a class="list-group-item" href="../module/param.html#variable-kdamping">kdamping</a>
+            <a class="list-group-item" href="../module/param.html#variable-forcing_flag">forcing_flag</a>
+            <a class="list-group-item" href="../module/param.html#variable-l">L</a>
+            <a class="list-group-item" href="../module/param.html#variable-kxa">kxa</a>
+            <a class="list-group-item" href="../module/param.html#variable-kya">kya</a>
+            <a class="list-group-item" href="../module/param.html#variable-kza">kza</a>
+            <a class="list-group-item" href="../module/param.html#variable-mype">mype</a>
+            <a class="list-group-item" href="../module/param.html#variable-locz">locz</a>
+            <a class="list-group-item" href="../module/param.html#variable-loczstart">loczstart</a>
+            <a class="list-group-item" href="../module/param.html#variable-alloc_local">alloc_local</a>
+            <a class="list-group-item" href="../module/param.html#variable-istatus">istatus</a>
+            <a class="list-group-item" href="../module/param.html#variable-icmode">icmode</a>
+            <a class="list-group-item" href="../module/param.html#variable-iuresult">iuRESULT</a>
+            <a class="list-group-item" href="../module/param.html#variable-truncmode">truncmode</a>
+            <a class="list-group-item" href="../module/param.html#variable-fftnorm">fftnorm</a>
+            <a class="list-group-item" href="../module/param.html#variable-ncwrite">ncwrite</a>
+            <a class="list-group-item" href="../module/param.html#variable-ndiagout">ndiagout</a>
+            <a class="list-group-item" href="../module/param.html#variable-ndiagevery">ndiagevery</a>
+            <a class="list-group-item" href="../module/param.html#variable-realspace_flag">realspace_flag</a>
+            <a class="list-group-item" href="../module/param.html#variable-nrsout">nrsout</a>
+            <a class="list-group-item" href="../module/param.html#variable-nrsevery">nrsevery</a>
+            <a class="list-group-item" href="../module/param.html#variable-nhstart">nHstart</a>
+            <a class="list-group-item" href="../module/param.html#variable-nhend">nHend</a>
+            <a class="list-group-item" href="../module/param.html#variable-nvstart">nVstart</a>
+            <a class="list-group-item" href="../module/param.html#variable-nvend">nVend</a>
+            <a class="list-group-item" href="../module/param.html#variable-nskiph">nskipH</a>
+            <a class="list-group-item" href="../module/param.html#variable-nskipv">nskipV</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_c_binding'>iso_c_binding</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n1"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>n1</strong></td>
+<td> =</td>
+                <td>2048</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n2"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>n2</strong></td>
+<td> =</td>
+                <td>2048</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n3"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>n3</strong></td>
+<td> =</td>
+                <td>256</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-npe"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>npe</strong></td>
+<td> =</td>
+                <td>256</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-twopi~4"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>twopi</strong></td>
+<td> =</td>
+                <td>4.*asin(1.)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sqrt2"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>sqrt2</strong></td>
+<td> =</td>
+                <td>sqrt(2.)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zi"></span>
+              complex,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>zi</strong></td>
+<td> =</td>
+                <td>cmplx(0., 1.)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-time"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>time</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delt"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>delt</strong></td>
+<td> =</td>
+                <td>1.7</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tstop"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>tstop</strong></td>
+<td> =</td>
+                <td>1*24*3600</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nstop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nstop</strong></td>
+<td> =</td>
+                <td>int(tstop/delt)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prra"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>PrRa</strong></td>
+<td> =</td>
+                <td>100</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-aj"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>aj</strong></td>
+<td> =</td>
+                <td>1e-2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bj"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>bj</strong></td>
+<td> =</td>
+                <td>aj</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bf2"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>bf2</strong></td>
+<td> =</td>
+                <td>aj*bj</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bf"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>bf</strong></td>
+<td> =</td>
+                <td>sqrt(bf2)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cor"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>cor</strong></td>
+<td> =</td>
+                <td>1.1e-4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cor2"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>cor2</strong></td>
+<td> =</td>
+                <td>cor*cor</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l1"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>L1</strong></td>
+<td> =</td>
+                <td>10e6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l2"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>L2</strong></td>
+<td> =</td>
+                <td>10e6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l3"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>L3</strong></td>
+<td> =</td>
+                <td>2e4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n1d"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>n1d</strong></td>
+<td> =</td>
+                <td>n1+2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n2d"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>n2d</strong></td>
+<td> =</td>
+                <td>n2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n3d"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>n3d</strong></td>
+<td> =</td>
+                <td>n3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n2dp"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>n2dp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n2p"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>n2p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ktx"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ktx</strong></td>
+<td> =</td>
+                <td>n1/2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kty"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>kty</strong></td>
+<td> =</td>
+                <td>n2/2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ktz"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ktz</strong></td>
+<td> =</td>
+                <td>n3/2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iktx"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>iktx</strong></td>
+<td> =</td>
+                <td>ktx+1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ikty"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ikty</strong></td>
+<td> =</td>
+                <td>n2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iktz"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>iktz</strong></td>
+<td> =</td>
+                <td>n3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iktzp"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>iktzp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kts"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>kts</strong></td>
+<td> =</td>
+                <td>n1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ktrunc_x"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ktrunc_x</strong></td>
+<td> =</td>
+                <td>twopi/L1*float(n1)/3.</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ktrunc_y"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ktrunc_y</strong></td>
+<td> =</td>
+                <td>twopi/L2*float(n2)/3.</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ktrunc_z"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ktrunc_z</strong></td>
+<td> =</td>
+                <td>twopi/L3*float(n3)/3.</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilap"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ilap</strong></td>
+<td> =</td>
+                <td>4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilap2"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ilap2</strong></td>
+<td> =</td>
+                <td>2*ilap</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vischtmp"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>vischtmp</strong></td>
+<td> =</td>
+                <td>5.e-5*(10./ktrunc_x)**2.</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-viscztmp"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>viscztmp</strong></td>
+<td> =</td>
+                <td>5.e-5*(10./ktrunc_z)**2.</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-visch"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>visch</strong></td>
+<td> =</td>
+                <td>6e25</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-viscz"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>viscz</strong></td>
+<td> =</td>
+                <td>1e5</td>
+            <td>
+                <p>viscztmp * ktrunc_z *<em>(2-2</em>ilap) ! viscosity coeff vertical</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ek"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ek</strong></td>
+<td> =</td>
+                <td>1./(24.*3600.)*delt</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kdamping"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>kdamping</strong></td>
+<td> =</td>
+                <td>3.</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-forcing_flag"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>forcing_flag</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:,:,:), allocatable, save
+            </td>
+            <td>::</td>
+            <td><strong>L</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kxa"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable, save
+            </td>
+            <td>::</td>
+            <td><strong>kxa</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kya"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable, save
+            </td>
+            <td>::</td>
+            <td><strong>kya</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kza"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable, save
+            </td>
+            <td>::</td>
+            <td><strong>kza</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mype"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>mype</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-locz"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>locz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-loczstart"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>loczstart</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alloc_local"></span>
+              integer(kind=C_INTPTR_T),
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>alloc_local</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-istatus"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>istatus</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-icmode"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>icmode</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iuresult"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>iuRESULT</strong></td>
+<td> =</td>
+                <td>11</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-truncmode"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>truncmode</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fftnorm"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>fftnorm</strong></td>
+<td> =</td>
+                <td>float(n1*n2*n3)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncwrite"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ncwrite</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ndiagout"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ndiagout</strong></td>
+<td> =</td>
+                <td>48</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ndiagevery"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ndiagevery</strong></td>
+<td> =</td>
+                <td>floor(nstop/float(ndiagout))</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-realspace_flag"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>realspace_flag</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nrsout"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nrsout</strong></td>
+<td> =</td>
+                <td>40</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nrsevery"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nrsevery</strong></td>
+<td> =</td>
+                <td>floor(nstop/float(nrsout))</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nhstart"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nHstart</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nhend"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nHend</strong></td>
+<td> =</td>
+                <td>n1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nvstart"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nVstart</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nvend"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nVend</strong></td>
+<td> =</td>
+                <td>n3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nskiph"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nskipH</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nskipv"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nskipV</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              BoussinesqCode
+ was developed by Costanza R.<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

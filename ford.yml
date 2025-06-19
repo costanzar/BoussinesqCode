@@ -1,0 +1,10 @@
+project: BoussinesqCode
+author: Costanza R.
+
+sources:
+  - scr
+
+source_ext: [F90]
+
+preprocess: false
+

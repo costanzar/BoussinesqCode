@@ -15,3 +15,10 @@ Basic parameters can be set in `input.nml`, such as:
 - Time step
 - Viscosity
 
+.. toctree::
+   :maxdepth: 1
+
+   usage
+   installation
+   api/index   # Link to Ford output (you will generate it into docs/api/)
+

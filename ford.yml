@@ -4,7 +4,7 @@ author: Costanza R.
 output_dir: docs/api
 preprocess: false
 
-source_dirs:
+sources:
   - scr
 
 source_ext: [F90, f90]

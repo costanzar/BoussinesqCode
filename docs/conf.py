@@ -1,6 +1,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
+html_extra_path =[os.path.abspath('api')]
 
 project = 'BoussinesqCode'
 author = 'Your Name or Group'

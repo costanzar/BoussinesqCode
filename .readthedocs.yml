@@ -6,7 +6,7 @@ sphinx:
 
 build:
   image: latest  # optional, for latest build environment
-  os: ubuntu-Its-latest  # optional
+  os: ubuntu-22.04
 
   commands:
     - python3 -m ford -d scr -e F90 ford.yml -o docs/api

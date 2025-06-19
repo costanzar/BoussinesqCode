@@ -5,6 +5,7 @@ sphinx:
   configuration: docs/conf.py  # point to your conf.py file inside the docs folder
 
 build:
+  os: ubuntu-22.04
   jobs:
     pre_build:
       - python3 -m ford -d scr -e F90 ford.yml -o docs/api

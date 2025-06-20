@@ -1,0 +1,809 @@
+<!-- -*- mode: jinja2 -*- -->
+
+{% macro info_bar(entity, incl_src, base_url, line_info) %}
+  <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+          {% if entity | meta('author') %}
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> {{ entity | meta('author') }}</li>
+          {% endif %}
+          {% if entity | meta('date') %}
+            <li class="list-inline-item" id="meta-date"><i class="fa fa-calendar-o"></i> {{ entity | meta('date') }}</li>
+          {% endif %}
+          {% if entity | meta('license') %}
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> {{ entity | meta('license') }}</li>
+          {% elif projectData['license'] %}
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> {{ projectData['license'] }}</li>
+          {% endif %}
+          {% if entity | meta('since') %}
+            <li class="list-inline-item" id="meta-since"><i class="fa fa-history"></i> Since: {{ entity | meta('since') }}</li>
+          {% endif %}
+          {% if entity | meta('version') %}
+            <li class="list-inline-item" id="meta-version"><i class="fa fa-barcode"></i> {{ entity | meta('version') }}</li>
+          {% endif %}
+          {% if entity | meta('category') %}
+            <li class="list-inline-item" id="meta-category"><i class="fa fa-folder-open"></i> {{ entity | meta('category') }}</li>
+          {% endif %}
+
+          {% if line_info %}
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="{{ line_info }}">{{ entity | meta('num_lines') }} statements</a>
+            </li>
+          {% endif %}
+
+          {% if incl_src %}
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="{{ base_url }}/src/{{ entity.filename }}"> Source File</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            {% if incl_src %}
+              {% for item in entity.hierarchy %}
+                <li class="breadcrumb-item">{{ item | relurl(page_url) }}</li>
+              {% endfor %}
+            {% else %}
+              {% for item in entity.hierarchy[1:] %}
+                <li class="breadcrumb-item">{{ item | relurl(page_url) }}</li>
+              {% endfor %}
+            {%endif%}
+            <li class="breadcrumb-item active" aria-current="page">{{ entity.name }}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+{% endmacro %}
+
+
+{% macro panel_contents(name, collection, anchor, panelnum, collection_url=False) %}
+  {% if collection %}
+    <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#{{ anchor }}-{{ panelnum }}"
+         aria-expanded="false" aria-controls="{{ anchor }}-{{ panelnum }}">
+         <h4 class="card-header bg-primary text-white">{{ name }}</h4>
+      </a>
+      <div id="{{ anchor }}-{{ panelnum }}" class="collapse">
+        <div class="list-group list-group-flush">
+          {% for item in collection %}
+            {% if item is string %}
+              {% set name = item %}
+              {% set anchor = item %}
+            {% else %}
+              {% set name = item.name if item.name else "<em>unnamed</em>" %}
+              {% set anchor = item.anchor %}
+            {% endif %}
+            {% set anchor_url = "../{}#{}".format(collection_url, anchor) if collection_url else "../{}".format(item.get_url()) %}
+            <a class="list-group-item" href="{{ anchor_url }}">{{ name }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{% macro content_list(self, panelnum=0) %}
+  {# Create the expandable panels for all the possible contents #}
+  <h3>Contents</h3>
+  {{ panel_contents("Common Blocks", self.common, "common", panelnum, self.get_url()) }}
+  {{ panel_contents("Variables", self.variables, "vars", panelnum, self.get_url()) }}
+  {{ panel_contents("Enumerations", self.enums, "enums", panelnum, self.get_url()) }}
+  {{ panel_contents("Constructor", [self.constructor] if self.constructor else [], "cons", panelnum, self.get_url()) }}
+  {{ panel_contents("Programs", self.programs, "progs", panelnum) }}
+  {{ panel_contents("Modules", self.modules, "mods", panelnum) }}
+  {{ panel_contents("Submodules", self.submodules, "submods", panelnum) }}
+  {{ panel_contents("Block Data Units", self.blockdata, "blocks", panelnum) }}
+  {{ panel_contents("Interfaces", self.interfaces, "inters", panelnum, self.get_url()) }}
+  {{ panel_contents("Abstract Interfaces", self.absinterfaces, "absints", panelnum, self.get_url()) }}
+  {{ panel_contents("Derived Types", self.types, "types", panelnum, self.get_url()) }}
+  {{ panel_contents("Functions", self.functions, "funcs", panelnum, self.get_url() if self.obj != "sourcefile" else False) }}
+  {{ panel_contents("Subroutines", self.subroutines, "subs", panelnum, self.get_url() if self.obj != "sourcefile" else False) }}
+  {{ panel_contents("Module Functions", self.modfunctions, "modfuncs", panelnum, self.get_url()) }}
+  {{ panel_contents("Module Subroutines", self.modsubroutines, "modsubs", panelnum, self.get_url()) }}
+  {{ panel_contents("Module Procedures", self.modprocedures, "modprocs", panelnum, self.get_url()) }}
+  {{ panel_contents("Finalization Procedures", self.finalprocs, "fins", panelnum, self.get_url()) }}
+  {{ panel_contents("Type-Bound Procedures", self.boundprocs, "boundprocs", panelnum, self.get_url()) }}
+  {{ panel_contents("Module Procedures", self.modprocs, "modprocs", panelnum, self.get_url()) }}
+  {{ panel_contents("Namelists", self.namelists, "namelists", panelnum, self.get_url()) }}
+  {% if self.src %}
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../{{ self.get_url() }}#src">{{ self.name }}</a>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if not (self.constructor or self.src or
+       self.iterator(
+         "absinterfaces",
+         "args",
+         "blockdata",
+         "boundprocs",
+         "common",
+         "enums",
+         "finalprocs",
+         "functions",
+         "interfaces",
+         "modfunctions",
+         "modsubroutines",
+         "modprocedures",
+         "modprocs",
+         "modules",
+         "namelists",
+         "programs",
+         "submodules",
+         "subroutines",
+         "types",
+         "variables",
+       ) | list
+    ) %}
+    <em>None</em>
+  {% endif %}
+{% endmacro %}
+
+
+{% macro sidebar(project,self) %}
+  <div id="sidebar">
+    {{ content_list(self) }}
+  </div>
+{% endmacro %}
+
+{% macro add_comma(condition) %}
+  {# Insert a literal comma if condition is true #}
+  {%- if condition -%},{% endif %}
+{% endmacro %}
+
+{% macro deprecated(entity) %}
+  {# Add 'Deprecated' warning #}
+  {%- if not entity.external_url -%}
+    {%- if entity | meta('deprecated') -%}
+      <span class="badge bg-danger depwarn">Deprecated</span>
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+
+{% macro variable_list(variables, intent=False, permission=False, summary=False, id=True) %}
+  <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        {% if permission %}<th scope="col">Visibility</th>{% endif %}
+        {% if intent %}<th scope="col">Intent</th><th scope="col">Optional</th>{% endif %}
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        {% if not intent %}<th></th><th scope="col">Initial</th>{% endif %}
+        <th scope="col"></th>
+    </thead>
+    {% set colnum = 6 + permission|int + intent|int %}
+    <tbody>
+      {% for var in variables %}
+        <tr>
+          {% if var.obj == 'variable' %}
+            <td>
+              <span class="anchor" {% if id %}id="{{ var.anchor }}"{% endif %}></span>
+              {{ var.full_type | relurl(page_url) }}{{ add_comma((intent and var.intent) or var.optional or permission or var.parameter or var.attribs) }}
+            </td>
+            {% if intent -%}
+              <td>
+                {%- if var.intent -%}
+                  intent({{ var.intent }}){{ add_comma(var.optional or permission or var.parameter or var.attribs) }}
+                {%- endif -%}
+              </td>
+              <td>{%- if var.optional -%}optional{{ add_comma(permission or var.parameter or var.attribs) }}{%- endif -%}</td>
+            {%- endif %}
+            {% if permission %}
+              <td>{{ var.permission }}{{ add_comma(var.parameter or var.attribs) }}</td>
+            {% endif %}
+            <td>
+              {% if var.parameter %}parameter{{ add_comma(var.attribs) }} {% endif %}
+              {{ var.attribs | join(", ") }}
+            </td>
+            <td>::</td>
+            <td><strong>{{ var.name }}</strong>{{ var.dimension }}</td>
+            {% if not intent %}
+              {% if var.initial -%}
+                <td>{% if var.points -%} =&gt; {% else %} = {%- endif %}</td>
+                <td>{{ var.initial|e }}</td>
+              {% else %}
+                <td></td>
+                <td></td>
+              {% endif %}
+            {% endif %}
+            <td>
+              {% if summary -%}
+                {{ var | meta('summary') }}
+              {% else %}
+                {{ var.doc }}
+              {% endif %}
+            </td>
+          {% elif var.obj == 'proc' %}
+            <td colspan="{{ colnum }}">
+              <small>{{ proc_summary(var,title=True,small=True) }}</small>
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endmacro %}
+
+{%- macro header(size, small=False) -%}
+  {%- if small -%}
+    <h{{ size + 2 }}>
+  {%- else -%}
+    <h{{ size }}>
+  {%- endif -%}
+{% endmacro %}
+
+{%- macro close_header(size, small=False) -%}
+  {%- if small -%}
+    </h{{ size + 2 }}>
+  {%- else -%}
+    </h{{ size }}>
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro docstring(entity, full_docstring=True) -%}
+  {# Display either the full docstring or just the summary #}
+  {%- if full_docstring or not entity.visible -%}
+    {{ entity.doc }}
+  {%- else -%}
+    {{ entity | meta("summary") }}
+  {%- endif -%}
+{%- endmacro -%}
+
+{% macro proc_summary(proc, title=True, small=False, proto=False, full_docstring=False) %}
+  {# Render the summary of a procedure, to be used in lists of procedures, for example #}
+  {% if title %}
+    {{ header(3, small) }}
+    {{ proc_line(proc,proto=proto) }}
+    {% if proto %}<small>Prototype</small>{% endif %}
+    {{ close_header(3, small) }}
+  {% endif %}
+  {% if proc.parent and proc.visible %}
+    {{ meta_list(proc.meta) }}
+  {% endif %}
+  {{ docstring(proc, full_docstring) }}
+
+  {{ header(4, small) }}Arguments{{ close_header(4, small) }}
+  {% if proc.args %}
+    {{ variable_list(proc.args, intent=True, summary=proc.visible) }}
+  {% else %}
+    <em>None</em>
+  {% endif %}
+  {% if proc.retvar %}
+    {{ header(4, small) }}
+    Return Value
+    <small>{{ proc.retvar.full_declaration | relurl(page_url) }}</small>
+    {{ close_header(4, small) }}
+    {{ docstring(proc.retvar, full_docstring) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro binding_summary(proc,title=True,small=False,proto=False) %}
+  {# Render the documentation for an individual binding of a type-bound procedure #}
+  {% if title %}
+    {{ header(3, small) }}
+    {{ proc_line(proc, proto=proto) }}
+    {%- if proto -%}
+      <small>Prototype</small>
+    {%- endif -%}
+    {{ close_header(3, small) }}
+  {% endif %}
+  {% if proc.parent and proc.visible %}
+    {{ meta_list(proc.meta) }}
+  {% endif %}
+
+  {{ docstring(proc, False) }}
+
+  {{ header(4, small) }}Arguments{{ close_header(4, small) }}
+  {% if proc.args|length %}
+    {{ variable_list(proc.args, intent=True, summary=proc.visible, id=False) }}
+  {% else %}
+    <em>None</em>
+  {% endif %}
+  {% if proc.retvar %}
+    {{ header(4, small) }}
+    Return Value
+    <small>{{ proc.retvar.full_declaration | relurl(page_url) }}</small>
+    {{ close_header(4, small) }}
+    {{ proc.retvar.doc }}
+  {% endif %}
+{% endmacro %}
+
+
+{% macro bound_declaration(tb, link_name=False) %}
+  {# Type-bound procedure declaration and bindings #}
+  {{ tb.full_declaration | relurl(page_url) }} ::
+  <strong>{% if link_name %}{{ tb | relurl(page_url) }}{% else %}{{ tb.name }}{% endif %}</strong>
+  {%- if tb.external_url %}
+    (external{% if not link_name %}: {{ tb | relurl(page_url) }}{% endif %})
+  {%- else %}
+    {%- if tb.generic or (tb.name != tb.bindings[0].name and tb.name != tb.bindings[0]) %} => {{ tb.bindings | join(", ") }}{% endif %}
+    {% if tb.binding|length == 1 %}<small>{{ tb.bindings[0].proctype }}</small>{% endif %}
+  {% endif %}
+{% endmacro %}
+
+
+{% macro bound_info(tb) %}
+  <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="{{ tb.anchor }}"></span>
+      <h3>
+        {{ bound_declaration(tb) }}
+        {{ deprecated(tb) }}
+      </h3>
+    </div>
+    {% if not tb.external_url %}
+      {% if tb.doc or meta_list(tb.meta)|trim|length is more_than_one %}
+        <div class="card-body">
+          {{ meta_list(tb.meta) }}
+          {{ docstring(tb) }}
+        </div>
+      {% endif %}
+      <ul class="list-group">
+        {% for bind in tb.bindings %}
+          <li class="list-group-item">
+            {% if tb.deferred and tb.protomatch %}
+              {% if tb.proto.obj == 'interface' %}
+                {{ binding_summary(tb.proto.procedure,proto=True) }}
+              {% elif tb.proto.obj == 'procedure' %}
+                {{ binding_summary(tb.proto,proto=True) }}
+              {% endif %}
+            {% elif bind.obj == 'boundprocedure' %}
+              {% if bind.deferred and bind.protomatch %}
+                {% if bind.proto.obj == 'interface' %}
+                  {{ binding_summary(bind.proto.procedure,proto=True) }}
+                {% elif bind.proto.obj == 'procedure' %}
+                  {{ binding_summary(bind.proto,proto=True) }}
+                {% endif %}
+              {% else %}
+                {{ binding_summary(bind.bindings[0]) }}
+              {% endif %}
+            {% else %}
+              {% if bind.obj == 'interface' %}
+                <h3>interface {{ deprecated(bind) }}</h3>
+                {% if bind.doc or (meta_list(bind.meta)|trim and not bind.visible) %}
+                  {% if not bind.visible %}
+                    {{ meta_list(bind.meta) }}
+                  {% endif %}
+                  {{ bind | meta('summary') }}
+                {% endif %}
+                {{ binding_summary(bind.procedure) }}
+              {% else %}
+                {{ binding_summary(bind) }}
+              {% endif %}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+
+{% macro interface(intr, full_docstring=True) %}
+  <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="{{ intr.anchor }}"></span>
+      <h3>{% if intr.parobj == 'module' and intr.generic %}{{ intr.permission }}{% endif %}
+        interface
+        {%- if intr.generic %} {{ intr | relurl(page_url) }} {% endif -%}
+        {{ deprecated(intr) }}
+      </h3>
+    </div>
+    {% if intr.doc or (meta_list(intr.meta)|trim and not intr.visible) %}
+      <div class="card-body">
+        {% if not intr.visible %}
+          {{ meta_list(intr.meta) }}
+        {% endif %}
+        {{ docstring(intr, full_docstring) }}
+      </div>
+    {% endif %}
+    <ul class="list-group">
+      {% if intr.generic %}
+        {% for proc in intr.routines %}
+          <li class="list-group-item">
+            {{ proc_summary(proc, full_docstring=full_docstring) }}
+          </li>
+        {% endfor %}
+        {% for proc in intr.modprocs %}
+          <li class="list-group-item">
+            {{ proc_summary(proc.procedure, full_docstring=full_docstring) }}
+          </li>
+        {% endfor %}
+        {%- if intr.variables -%}
+          <li class="list-group-item">
+            <h3>Dummy Procedures and Procedure Pointers</h3>
+            {{ variable_list(intr.variables, permission=False) }}
+          </li>
+        {%- endif -%}
+      {% else %}
+        <li class="list-group-item">
+          {{ proc_summary(intr.procedure, full_docstring=full_docstring) }}
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endmacro %}
+
+{% macro absinterface(intr) %}
+  <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="{{ intr.anchor }}"></span><h3>abstract interface
+        {{ deprecated(intr) }}
+    </h3></div>
+    {% if intr.doc or meta_list(intr.meta)|trim %}
+      <div class="card-body">
+        {{ meta_list(intr.meta) }}
+        {{ intr | meta('summary') }}
+      </div>
+    {% endif %}
+    <ul class="list-group">
+      <li class="list-group-item">
+        {{ proc_summary(intr.procedure) }}
+      </li>
+    </ul>
+  </div>
+{% endmacro %}
+
+{% macro proc_line(proc, link=True, proto=False) %}
+  {% if proc.mp %}module procedure {% if not proc.parent or (proc.visible and link) %}{{ page_url }} {{ proc | relurl(page_url) }}{% else %}{{ proc.name }}{% endif %} <small>{% endif -%}
+  {% if (proc.parobj == 'module' or (proc.parobj == 'interface' and proc.parent.parobj == 'module')) and not proto %}{{ proc.permission }} {% endif -%}
+  {{ proc.attribs | join(" ") }} {{ proc.proctype |lower }}
+  {%- if not proc.parent or (proc.visible and link and not proc.mp) %} {{ proc | relurl(page_url) }}{% else %} {{ proc.name }}{% endif -%}
+  ({{ proc.args | join(", ") }})
+  {%- if proc.proctype|lower == 'function' and proc.name != proc.retvar.name %} result({{ proc.retvar.name }}){% endif -%}
+  {% if proc.bindC %} bind({{ proc.bindC }}){% endif %}
+  {% if proc.mp %}</small>{% endif %}
+  {{ deprecated(proc) }}
+  {% if proc.module and proc.module != True and proc.module.visible %}
+    {% set label = "Implementation" if proc.parobj == 'interface' else "Interface" %}
+    <a href="../{{ proc.module.get_url() }}"><button type="button" class="btn btn-info depwarn">{{ label }} &rarr;</button></a>
+  {% endif %}
+{% endmacro %}
+
+
+{% macro final(proc) %}
+  <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="{{ proc.anchor }}"></span>
+      <h3>final :: <strong>{{ proc.name }}</strong> {{ deprecated(proc) }}</h3>
+    </div>
+    <div class="card-body">
+      {{ meta_list(proc.meta) }}
+      {{ docstring(proc) }}
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        {{ proc_summary(proc.procedure, title=True, full_docstring=False) }}
+      </li>
+    </ul>
+  </div>
+{% endmacro %}
+
+{% macro display_permission(item) %}
+  {% if item.parobj == "module" or (item.parobj == "interface" and item.parent.parobj == "module") %}
+    {{ item.permission }}
+  {% endif %}
+{% endmacro %}
+
+{% macro type_summary(dtype) %}
+  <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="{{ dtype.anchor }}"></span>
+      <h3>
+        type
+        {%- if dtype.parobj == 'module' %}, {{ dtype.permission }}{% endif -%}
+        {%- if dtype.sequence %}, sequence {% endif -%}
+        {%- if dtype.attribs %}, {{ dtype.attribs | join(", ") }}{% endif -%}
+        {%- if dtype.extends %}, extends({{ dtype.extends | relurl(page_url) }}){% endif -%}&nbsp;::&nbsp;
+        {{ dtype | relurl(page_url) }}
+        {{ deprecated(dtype) }}
+      </h3>
+    </div>
+    <div class="card-body">
+      {% if not dtype.visible %}
+        {{ meta_list(dtype.meta) }}
+      {% endif %}
+      {{ dtype | meta('summary') }}
+
+      {% if dtype.variables %}
+        <h4>Components</h4>
+        {{ variable_list(dtype.variables, permission=True, summary=True) }}
+      {% endif %}
+
+      {% if dtype.constructor %}
+        <h4>Constructor</h4>
+        {% if dtype.constructor.obj == 'interface' %}
+          {{ docstring(dtype.constructor, full_docstring=False) }}
+        {% endif %}
+        <table class="table table-striped varlist">
+          <tbody>
+            {% if dtype.constructor.obj == 'proc' %}
+              <tr>
+                <td>{{ proc_line(dtype.constructor) }}</td>
+                <td>{{ docstring(dtype.constructor, full_docstring=False) }}</td>
+              </tr>
+            {% elif dtype.constructor.obj == 'interface' %}
+              {% for proc in dtype.constructor.routines|list + dtype.constructor.modprocs|map(attribute="procedure")|list %}
+                <tr>
+                  <td>
+                    {{ display_permission(proc) }}
+                    {{ proc.attribs | join(", ") }}
+                    {{ proc.proctype|lower }}
+                    <strong>{{ proc }}</strong>
+                    ({{ proc.args | join(", ") }})
+                    {% if proc.bindC -%}, bind({{ proc.bindC }}){% endif %}
+                  </td>
+                  <td>{{ docstring(proc, full_docstring=False) }}</td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+          </tbody>
+        </table>
+      {% endif %}
+
+      {% if dtype.finalprocs %}
+        <h4>Finalizations Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+            {% for fin in dtype.finalprocs %}
+              <tr>
+                <td>final :: <strong>{{ fin.name }}</strong></td>
+                <td>{{ fin | meta('summary') }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+
+      {% if dtype.boundprocs %}
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+            {% for tb in dtype.boundprocs %}
+              <tr>
+                <td>{{ bound_declaration(tb, link_name=True) }}</td>
+                {% if not tb.external_url %}
+                  <td>{{ tb | meta('summary') }}</td>
+		        {% endif %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro common_block(com) %}
+  <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="{{ com.anchor }}"></span>
+      <h3>
+        <a href="#"
+           data-bs-toggle="popover"
+           data-bs-html="true"
+           data-bs-trigger="focus"
+           data-bs-title="Used elsewhere:"
+           data-bs-content="{{ common_popover(com) }}">
+           common{% if com.name %} /{{ com.name }}/{% endif %}
+        </a>
+        {{ deprecated(com) }}
+      </h3>
+    </div>
+    <div class="card-body">
+      {% if meta_list(com.meta)|trim %}
+        {{ meta_list(com.meta) }}
+      {% endif %}
+      {{ com.doc }}
+      {% if com.variables %}
+        {{ variable_list(com.variables) }}
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro common_popover(common) %}
+  {%- for item in common.other_uses -%}
+    {%- if item != common -%}
+      <a href="../{{ item.get_url() }}">{% if item.parent.name -%}{{ item.parent.name }}{%- else -%}<em>unnamed</em>{%- endif %}</a>
+      ({% if item.parobj == 'proc' -%}{{ item.parent.proctype|lower }}{%- else -%}{{ item.parobj }}{%- endif %})<br>
+    {%- endif -%}
+  {%- endfor -%}
+{% endmacro %}
+
+{% macro enum_entry(enum) %}
+  <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="{{ enum.anchor }}"></span><h3>enum, bind(c){{ deprecated(enum) }}</h3></div>
+    <div class="card-body">
+      <h4>Enumerators</h4>
+      <table class="table table-striped varlist">
+        <tbody>
+          {% for var in enum.variables %}
+            <tr>
+              <td>{{ var.vartype }}</td><td>::</td>
+              <td><strong>{{ var.name }}</strong></td><td> = </td><td>{{ var.initial }}</td><td>{% if summary -%}{{ var | meta('summary') }}{% else %}{{ var.doc }}{% endif %}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if enum.doc or meta_list(enum.meta)|trim %}
+        <h4>Description</h4>
+        {{ meta_list(enum.meta) }}
+        {{ enum.doc }}
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro proc_entry(proc) %}
+  <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="{{ proc.anchor }}"></span>{{ honkle }} <h3>{{ proc_line(proc) }}</h3></div>
+    <div class="card-body">
+      {{ proc_summary(proc,False) }}
+    </div>
+  </div>
+{% endmacro %}
+
+{# The full panel for a single namelist on another entitys page #}
+{% macro namelist_panel(namelist) %}
+  <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="{{ namelist.anchor }}"></span>
+      <h3>Namelist {{ namelist | relurl(page_url) }}</h3>
+    </div>
+    <div class="card-body">
+      {{ namelist_summary(namelist, False) }}
+    </div>
+  </div>
+{% endmacro %}
+
+{# Variable table for a single namelist #}
+{% macro namelist_summary(namelist, full_docstring) %}
+  {{ docstring(namelist, full_docstring) }}
+  <br class="visible-xs visible-sm hidden-md">
+  <section>
+    <h2>Variables</h2>
+    <table class="table table-striped" id="{{ namelist.anchor }}">
+      <thead><tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+      </tr></thead>
+      <tbody>
+        {% for variable in namelist.variables %}
+          {{ namelist_row(variable, full_docstring) }}
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+{% endmacro %}
+
+{# A single row of the namelist variable table #}
+{% macro namelist_row(variable, full_docstring) %}
+  {% if variable is string %}
+    <tr id="{{ variable }}">
+      <td><a href="#{{ variable }}">{{ variable }}</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  {% else %}
+    <tr id="{{ variable.anchor }}">
+      <td><a href="#{{ variable.anchor }}">{{ variable.name }}</a></td>
+      <td>{{ variable.full_type | relurl(page_url) }}</td>
+      <td>{{ variable.initial | e }}</td>
+      <td>{{ docstring(variable, full_docstring) }}</td>
+    </tr>
+  {% endif %}
+{% endmacro %}
+
+{% macro use_list(obj) %}
+  {% if obj.uses or obj.ancestry %}
+    <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          {% if obj.uses %}
+            <li class="list-group-item">
+              <ul class="list-inline">
+                {% for use in obj.uses %}
+                  <li class="list-inline-item">{{ use | relurl(page_url) }}</li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endif %}
+          {% if obj.ancestry %}
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li><h5>Ancestors:</h5></li>
+                {% for ancestor in obj.ancestry %}
+                  <li class="list-inline-item">{{ ancestor | relurl(page_url) }}</li>
+                  {% if not loop.last -%}<li>:</li>{%- endif %}
+                  {% endfor %}
+              </ul>
+            </li>
+          {% endif %}
+          {% if obj.usesgraph %}
+            <li class="list-group-item">
+              {{ obj.usesgraph }}
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endmacro %}
+
+
+{% macro usedby_list(obj) %}
+  {% if obj.usedbygraph or obj.descendants %}
+    <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          {% if obj.descendants %}
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li class="list-inline-item"><h5>Descendants:</h5></li>
+                {% for ancestor in obj.descendants %}
+                  <li class="list-inline-item">{{ ancestor | relurl(page_url) }}</li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endif %}
+          {% if obj.usedbygraph %}
+            <li class="list-group-item">
+              {{ obj.usedbygraph }}
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endmacro %}
+
+
+{% macro meta_list(meta) %}
+  {% if meta.author or meta.date or meta.license or meta.version or meta.category %}
+    <dl class="dl-horizontal">
+      {% if meta.author %}
+        <dt>Author</dt><dd>{{ meta.author }}</dd>
+      {% endif %}
+      {% if meta.date %}
+        <dt>Date</dt><dd>{{ meta.date }}</dd>
+      {% endif %}
+      {% if meta.license %}
+        <dt>License</dt><dd>{{ meta.license }}</dd>
+      {% elif projectData['license'] %}
+        <dt>License</dt><dd>{{ projectData['license'] }}</dd>
+      {% endif %}
+      {% if meta.since %}
+        <dt>Since</dt><dd>{{ meta.since }}</dd>
+      {% endif %}
+      {% if meta.version %}
+        <dt>Version</dt><dd>{{ meta.version }}</dd>
+      {% endif %}
+      {% if meta.category %}
+        <dt>Category</dt><dd>{{ meta.category }}</dd>
+      {% endif %}
+    </dl>
+  {% endif %}
+{% endmacro %}

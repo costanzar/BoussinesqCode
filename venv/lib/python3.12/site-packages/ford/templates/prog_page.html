@@ -1,0 +1,138 @@
+<!-- -*- mode: jinja2 -*- -->
+
+{% extends "base.html" %}
+{% block title %}{% if program.name %}{{ program.name }}{% else %}unnamed{% endif %} &ndash; {{ project }}{% endblock title %}
+{% block body %}
+  {% import 'macros.html' as macros %}
+  <div class="row">
+    <h1>{% if program.name -%}{{ program.name }}{% else %}<em>unnamed</em>{% endif %}
+      <small>Program</small>
+      {{ macros.deprecated(program) }}
+    </h1>
+    {{ macros.info_bar(program, incl_src, project_url, program.lines_description(project.prog_lines)) }}
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    {{ macros.sidebar(project,program) }}
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    {{ macros.use_list(program) }}
+    {{ program.doc }}
+    {% if program.callsgraph %}
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  {{ program.callsgraph }}
+      </div>
+    </div>
+     {% endif %}
+    {% if program.doc or program.callsgraph %}<br>{% endif %}
+
+     {% if program.common %}
+     <section>
+       <h2>Common Blocks</h2>
+       {% for com in program.common %}
+       {{ macros.common_block(com) }}
+       {% endfor %}
+     </section>
+     <br>
+     <script>
+       $(function () {
+       $('[data-bs-toggle="popover"]').popover()
+       })
+     </script>
+     {% endif %}
+
+    {% if program.variables %}
+    <section>
+    <h2>Variables</h2>
+    {{ macros.variable_list(program.variables) }}
+    </section>
+    <br>
+    {% endif %}
+    
+    {% if program.enums %}
+    <section>
+    <h2>Enumerations</h2>
+    {% for enum in program.enums %}
+      {{ macros.enum_entry(enum) }}
+    {% endfor %}
+    </section>
+    <br>
+    {% endif %}
+    
+    {% if program.interfaces %}
+    <section>
+   <h2>Interfaces</h2>
+   {% for intr in program.interfaces %}
+     {{ macros.interface(intr) }}
+    {% endfor %}
+    </section>
+   <br>
+    {% endif %}
+    
+    {% if program.absinterfaces %}
+    <section>
+   <h2>Abstract Interfaces</h2>
+   {% for intr in program.absinterfaces %}
+     {{ macros.absinterface(intr) }}
+    {% endfor %}
+    </section>
+   <br>
+    {% endif %}
+
+    {% if program.types %}
+    <section>
+   <h2>Derived Types</h2>
+   {% for type in program.types %}
+     {{ macros.type_summary(type) }}
+    {% endfor %}
+    </section>
+   <br>
+    {% endif %}
+    
+    {% if program.functions %} 
+    <section>
+    <h2>Functions</h2>
+    {% for proc in program.functions %}
+    {{ macros.proc_entry(proc) }}
+    {% endfor %}
+    </section>
+    <br>
+    {% endif %}
+
+
+    {% if program.subroutines %}
+    <section>
+    <h2>Subroutines</h2>
+    {% for proc in program.subroutines %}
+    {{ macros.proc_entry(proc) }}
+    {% endfor %}
+    </section>    
+    {% endif %}
+    
+    {% if program.namelists %}
+      <section>
+        <h2>Namelists</h2>
+        {% for namelist in program.namelists %}
+          {{ macros.namelist_panel(namelist) }}
+        {% endfor %}
+      </section>
+    {% endif %}
+
+    {% if program.src %}
+    <section>
+    <h2 id="src">Source Code</h2>
+    {{ program.src }}
+    </section>
+    {% endif %}
+    
+    </div>
+  </div>
+
+  {% endblock body %}

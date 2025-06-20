@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+Search Results &ndash; {{ project }}
+{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Search Results</h1>
+    <div id="lunrsearchresults">
+      <ul></ul>
+    </div>
+  </div>
+</div>
+
+{% if search|lower == 'true' %}
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="{{ project_url }}/search/search_database.json"></script>
+<script src="{{ project_url }}/search/load_search.js"></script>
+{% endif %}
+{% endblock %}
+

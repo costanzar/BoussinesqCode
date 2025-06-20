@@ -1,0 +1,60 @@
+<!-- -*- mode: jinja2 -*- -->
+
+{% extends "base.html" %}
+{% block title %}{{ blockdat.name|striptags }} &ndash; {{ project }}{% endblock title %}
+{% block body %}
+  {% import 'macros.html' as macros %}
+  <div class="row">
+    <h1>{{ blockdat.name }} 
+      <small>Block Data</small>
+      {{ macros.deprecated(blockdat) }}
+    </h1>
+    {{ macros.info_bar(blockdat, incl_src, project_url, blockdat.lines_description(project.block_lines)) }}
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    {{ macros.sidebar(project,blockdat) }}
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    {{ macros.use_list(blockdat) }}
+    {{ blockdat.doc }}
+    <br>
+
+    {% if blockdat.common %}
+    <section>
+      <h2>Common Blocks</h2>
+      {% for com in blockdat.common %}
+      {{ macros.common_block(com) }}
+      {% endfor %}
+    </section>
+    <br>
+    <script>
+      $(function () {
+      $('[data-bs-toggle="popover"]').popover()
+      })
+    </script>
+    {% endif %}
+
+    {% if blockdat.variables %}
+    <section>
+    <h2>Variables</h2>
+    {{ macros.variable_list(blockdat.variables) }}
+    </section>
+    <br>
+    {% endif %}
+    
+    {% if blockdat.types %}
+    <section>
+     <h2>Derived Types</h2>
+   {% for type in blockdat.types %}
+     {{ macros.type_summary(type) }}
+     {% endfor %}
+    </section>
+  <br>
+    {% endif %}
+    
+    </div>
+  </div>
+  {% endblock body %}

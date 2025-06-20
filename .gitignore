@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compiled Fortran files
+*.mod
+*.o
+*.out
+*.exe
+
+# FORD generated documentation
+docs/api/
+
+# Sphinx build output
+_build/
+docs/_build/
+
+# Temporary files
+*.tmp
+*.log
+*.aux
+*.toc
+*.bak
+*~
+.DS_Store
+
+# Virtual environment
+.env
+.venv
+env/
+venv/
+ENV/
+Pipfile.lock
+
+# Jupyter Notebook checkpoints (if any)
+.ipynb_checkpoints/
+
+# VSCode or other editor files
+.vscode/
+.idea/
+*.code-workspace
+
+# macOS metadata
+.DS_Store
+
+# Ford output (if run manually to a different directory)
+doc/
+ford-output/
+

@@ -47,4 +47,4 @@ Pipfile.lock
 # Ford output (if run manually to a different directory)
 doc/
 ford-output/
-
+docs/api/
